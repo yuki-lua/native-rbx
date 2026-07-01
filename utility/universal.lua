@@ -49,7 +49,7 @@ Utility.Misc = {
     end,
     UI = {
         SendNotification = function(text, duration)
-            Utility.Services.StarterGui:SetCore({
+            Utility.Services.StarterGui:SetCore('SendNotification', {
                 Title = 'Native',
                 Text = text,
                 Duration = duration
@@ -144,9 +144,9 @@ Utility.Entity = {
 		        if Entity.Team.Name == LocalPlayer.Team.Name then
         			return LocalPlayer.Team
 	        	end
-    	    	if Entity.Team.TeamColor == LocalPlayer.Team.TeamColor then
+     	    	if Entity.Team.TeamColor == LocalPlayer.Team.TeamColor then
 	    		    return LocalPlayer.Team
-        		end
+         		end
 	        	if Entity:GetAttribute('Team') == LocalPlayer:GetAttribute('Team') then
 		    	    return LocalPlayer.Team
 		        end 
@@ -202,24 +202,24 @@ Utility.Entity = {
 				    end
     			end
 	    	end,
-    		Get = function()
+     		Get = function()
 	    		for _, v in LocalPlayer.Backpack:GetChildren() do
 		    		if v:IsA('Tool') then 
                         return v 
                     end
-    			end
+     			end
 	    	end,
 	    },  
 	    Character = {
-    		Find = function(toolname)
+     		Find = function(toolname)
 	    		for _, v in LocalPlayer.Character:GetChildren() do
 		    		if v:IsA('Tool') and v.Name:lower():find(toolname:lower(), 1, true) then
 			    		return v
 				    end
-    			end
+     			end
 	    	end,
 		    Get = function()
-    			for _, v in LocalPlayer.Character:GetChildren() do
+     			for _, v in LocalPlayer.Character:GetChildren() do
 	    			if v:IsA('Tool') then 
                         return v 
                     end
@@ -231,29 +231,29 @@ Utility.Entity = {
         Distance = function(MaxDist, Mode, TeamCheck, WallCheck, Direction)
             local Entity, MinDist = nil, math.huge
 	    	for _, v in Utility.Services.Players:GetPlayers() do
-    			if v ~= LocalPlayer and Utility.Entity.IsAlive(v) then
-				    if TeamCheck and Utility.Entity.GetTeam(v) then continue end
+     			if v ~= LocalPlayer and Utility.Entity.IsAlive(v) then
+			    if TeamCheck and Utility.Entity.GetTeam(v) then continue end
                     if WallCheck and not Utility.Entity.HasLineOfSight(v) then continue end
 
 			    	local Distance = (v.Character.PrimaryPart.Position - LocalPlayer.Character.PrimaryPart.Position)
 	    			if Distance.Magnitude <= MaxDist then
-    					local Angle = math.deg(LocalPlayer.Character.PrimaryPart.CFrame.LookVector:Angle(Distance.Unit))
-					    if Direction and Direction < 360 then
+     					local Angle = math.deg(LocalPlayer.Character.PrimaryPart.CFrame.LookVector:Angle(Distance.Unit))
+				    if Direction and Direction < 360 then
 				    		if Angle > (Direction / 2) then continue end
 			    		end
 		    			local Selected
 	    				if Mode == 'Closest' then
-    						Selected = Distance.Magnitude
-					    elseif Mode == 'Lowest' then
-				    		Selected = v.Character:FindFirstChildOfClass('Humanoid').Health
-			    		elseif Mode == 'Angle' then
+     						Selected = Distance.Magnitude
+				    elseif Mode == 'Lowest' then
+			    		Selected = v.Character:FindFirstChildOfClass('Humanoid').Health
+		    		elseif Mode == 'Angle' then
 		    				Selected = Angle
 	    				end
-    					if Selected and Selected < MinDist then
-				    		MinDist = Selected
-			    			Entity = v
+     					if Selected and Selected < MinDist then
+			    		MinDist = Selected
+		    			Entity = v
 		    			end
-    				end
+     				end
 	    		end
 		    end
 		    return Entity
@@ -261,7 +261,7 @@ Utility.Entity = {
         Mouse = function(MaxDist, FOV, TeamCheck, WallCheck)
 		    local Entity, MinDist = nil, math.huge
 		    for _, v in Utility.Services.Players:GetPlayers() do
-    			if v ~= LocalPlayer and Utility.Entity.IsAlive(v) then
+     			if v ~= LocalPlayer and Utility.Entity.IsAlive(v) then
 	    			if TeamCheck and Utility.Entity.GetTeam(v) then continue end
 		    		if WallCheck and not Utility.Entity.HasLineOfSight(v) then continue end
 
@@ -273,10 +273,10 @@ Utility.Entity = {
 					    	if Dist <= FOV and Dist < MinDist then
 							    MinDist = Dist
 						    	Entity = v
-    						end
+     						end
 	    				end
 		    		end
-    			end
+     			end
 	    	end
 		    return Entity
         end,
