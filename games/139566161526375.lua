@@ -1,8 +1,8 @@
 repeat task.wait() until shared.gid ~= nil
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/library/139566161526375.lua'))()
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/library/139566161526375.lua'))()
 local Utilities = {
-    Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/utility/universal.lua'))()
-    Game = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/utility/139566161526375.lua'))()
+    Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/utility/universal.lua'))()
+    Game = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/utility/139566161526375.lua'))()
 }
 
 local Device = Utilities.Universal.Misc.GetDevice()
