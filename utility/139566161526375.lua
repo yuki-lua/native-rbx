@@ -1,5 +1,5 @@
 --// credits to @nothm_
-local Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/utility/universal.lua'))()
+local Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/utility/universal.lua'))()
 local LocalPlayer = Universal.Services.Players.LocalPlayer
 local Utility = {}
 
