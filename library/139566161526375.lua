@@ -54,9 +54,16 @@ local Library = {}
 
 local Templates = Utilities.Game.UI.Settings.Container
 local MainGui = LocalPlayer.PlayerGui:FindFirstChild('MainGui')
-if not MainGui then return end
+if not MainGui then
+    MainGui = LocalPlayer.PlayerGui:WaitForChild('MainGui', 10)
+    if not MainGui then return end
+end
 
 local EventFrame = MainGui:FindFirstChild('Event')
+if not EventFrame then
+    EventFrame = MainGui:WaitForChild('Event', 10)
+    if not EventFrame then return end
+end
 EventFrame.Name = 'oldevent'
 
 local Overlays = {}
@@ -83,7 +90,7 @@ FrameTitle.Text = 'Native'
 
 local Container = SettingsFrame:FindFirstChild('Container')
 for _, obj in Container:GetChildren() do
-    if not obj:IsA('UIListLayout_1') then
+    if not obj:IsA('UIListLayout') then
         obj:Destroy()
     end
 end
@@ -688,6 +695,6 @@ Library.DropdownSet = function(name, options)
 end
 
 
-Utilities.Game.Knit.GetController('NotificationController').SendNotification(_, 'Native Loaded | made by @yukki.lua and @nothm_', 15)
+Utilities.Game.Knit.GetController('NotificationController').SendNotification(nil, 'Native Loaded | made by @yukki.lua and @nothm_', 15)
 
 return Library
