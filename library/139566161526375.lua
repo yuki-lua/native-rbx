@@ -9,8 +9,8 @@ local readfile = readfile or function(obj) end
 local isfolder = isfolder or function(obj) end
 local makefolder = makefolder or function(obj) end
 local Utilities = {
-    Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/utility/universal.lua'))()
-    Game = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/utility/139566161526375.lua'))()
+    Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/utility/universal.lua'))()
+    Game = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/utility/139566161526375.lua'))()
 }
 
 local LocalPlayer = Utilities.Universal.Services.Players.LocalPlayer
