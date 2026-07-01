@@ -8,6 +8,6 @@ Native is a simple script, currently in its beta testing phase. Specifically des
   
 #### Loader
 ```luau
-loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-beta/refs/heads/main/loader.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/loader.lua'))()
 ```
 Contact: https://discord.gg/GyYHdGM6Ej
