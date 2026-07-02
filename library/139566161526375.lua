@@ -1,9 +1,9 @@
-repeat task.wait() until shared.gid
-if shared.native then --Idfk if this is efficient or nah but ig it works, DONT blame me CUS U CANT EVEN FIGURE/FIX IT BY YOURSELF
-    if shared.nativeload then
-        return
+repeat task.wait() until shared.gid and shared.native
+if shared.native then
+    if not shared.natload then
+        shared.natload = true
     else
-        shared.nativeload = true
+        return
     end
 end
 
