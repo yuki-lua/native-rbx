@@ -55,16 +55,13 @@ local Library = {}
 local Templates = Utilities.Game.UI.Settings.Container
 local MainGui = LocalPlayer.PlayerGui:FindFirstChild('MainGui')
 if not MainGui then
-    MainGui = LocalPlayer.PlayerGui:WaitForChild('MainGui', 10)
-    if not MainGui then return end
+    MainGui = LocalPlayer.PlayerGui:WaitForChild('MainGui')
 end
 
 local EventFrame = MainGui:FindFirstChild('Event')
-if not EventFrame then
-    EventFrame = MainGui:WaitForChild('Event', 10)
-    if not EventFrame then return end
+if EventFrame then
+    EventFrame.Name = 'oldevent'
 end
-EventFrame.Name = 'oldevent'
 
 local Overlays = {}
 local Keybinds = {}
@@ -90,7 +87,9 @@ FrameTitle.Text = 'Native'
 
 local Container = SettingsFrame:FindFirstChild('Container')
 for _, obj in Container:GetChildren() do
-    if not obj:IsA('UIListLayout') then
+    if obj:IsA('UIListLayout') then
+        -- Skip UIListLayout instances
+    else
         obj:Destroy()
     end
 end
