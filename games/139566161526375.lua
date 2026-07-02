@@ -1,5 +1,4 @@
-repeat task.wait() until shared.gid ~= nil
-repeat task.wait() until shared.native ~= nil
+repeat task.wait() until shared.gid and shared.native and shared.nativeload
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/library/139566161526375.lua'))()
 local Utilities = {
     Universal = loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/utility/universal.lua'))(),
