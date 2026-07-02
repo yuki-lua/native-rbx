@@ -1,12 +1,4 @@
 repeat task.wait() until shared.gid and shared.native
-if shared.native then
-    if not shared.natload then
-        shared.natload = true
-    else
-        return
-    end
-end
-
 local hookfunction = hookfunction or function(a, b) end
 local isfile = isfile or function(obj) end
 local writefile = writefile or function(obj, Data) end
