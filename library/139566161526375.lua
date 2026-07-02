@@ -1,6 +1,11 @@
 repeat task.wait() until shared.gid ~= nil
-if not shared.native then shared.native = nil end
-if shared.native == nil then shared.native = true end
+if shared.native then --Idfk if this is efficient or nah but ig it works, DONT blame me CUS U CANT EVEN FIGURE/FIX IT BY YOURSELF
+    if shared.nativeload then
+        return
+    else
+        shared.nativeload = true
+    end
+end
 
 local hookfunction = hookfunction or function(a, b) end
 local isfile = isfile or function(obj) end
