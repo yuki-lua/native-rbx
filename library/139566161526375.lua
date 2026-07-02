@@ -1,6 +1,6 @@
 repeat task.wait() until shared.gid ~= nil
 if shared.native then return end
-shared.native = true
+if not shared.native then shared.native = true end
 
 local hookfunction = hookfunction or function(a, b) end
 local isfile = isfile or function(obj) end
