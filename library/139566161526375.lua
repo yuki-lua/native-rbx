@@ -1,4 +1,4 @@
-repeat task.wait() until shared.gid ~= nil
+repeat task.wait() until shared.gid
 if shared.native then --Idfk if this is efficient or nah but ig it works, DONT blame me CUS U CANT EVEN FIGURE/FIX IT BY YOURSELF
     if shared.nativeload then
         return
