@@ -92,9 +92,7 @@ FrameTitle.Text = 'Native'
 
 local Container = SettingsFrame:FindFirstChild('Container')
 for _, obj in Container:GetChildren() do
-    if obj:IsA('UIListLayout') then
-        -- Skip UIListLayout instances
-    else
+    if not obj:IsA('UIListLayout_1') then
         obj:Destroy()
     end
 end
