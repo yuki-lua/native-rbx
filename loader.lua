@@ -7,7 +7,7 @@ for _, v in pairs(Experience) do
     if not Status then continue end
     local success, result = pcall(function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/yuki-lua/native-rbx/refs/heads/main/games/' .. Id .. '.lua'))()
-        shared.gid = Id
+        if not shared.gid then shared.gid = Id end
     end)
     if not success then
         warn(result)
